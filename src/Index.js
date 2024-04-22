@@ -31,8 +31,7 @@ app.get('/validarFecha/:ano/:mes/:dia', (req, res) => { // EndPoint "/ValidarFec
     let ano = ValidacionesHelper.getIntegerOrDefault(req.params.ano, 2000);
     let mes = ValidacionesHelper.getIntegerOrDefault(req.params.mes, 1);
     let dia = ValidacionesHelper.getIntegerOrDefault(req.params.dia, 1);
-    let fecha = `${ano}-${mes}-${dia}`;
-    fecha = Date.parse(fecha);
+    let fecha = new Date(`${ano}-${mes}-${dia}`);
     if(!isNaN(fecha))
     {
         res.status(200).send(fecha.toString())

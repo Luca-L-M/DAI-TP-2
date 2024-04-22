@@ -8,11 +8,6 @@ class ValidacionesHelper
     * @param {*} defaultValue valor por default en el caso de que 'value' no
     * se pueda convertir a un número entero.
     * @returns Un número entero.
-    *
-    * @example
-    * let result1 = ValidacionesHelper.getIntegerOrDefault("10", 1); // returns: 10
-    * let result2 = ValidacionesHelper.getIntegerOrDefault(null, 1); // returns: 1
-    * let result3 = ValidacionesHelper.getIntegerOrDefault("hello", 1); // returns: 1
     */
     getIntegerOrDefault = (value, defaultValue) => {
         let result
@@ -41,11 +36,11 @@ class ValidacionesHelper
     getStringOrDefault = (value, defaultValue) => {
         let result
         result = toString(value)
-        if(i(result))
+        if(isNaN(result))
         {
-            return defaultValue
+            return result
         }
-        else return result
+        else return defaultValue
     };
 }
 
